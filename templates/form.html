@@ -1,0 +1,31 @@
+<html>
+    <head><title>Registration form</title></head>
+    <body>
+        <script>
+            function validate(){
+                var username=document.forms["regform"]["username"].value;
+                var password=document.forms["regform"]["password"].value;
+                var age=document.forms["regform"]["age"].value;
+                if(username=="" || password=="" || age==""){
+                    alert("All fields are required");
+                    return false;
+                }
+                if(password.length<6){
+                    alert("Password must be at least 6 characters long");
+                    return false;
+                }
+                if(isNaN(age) || age<1 || age>120){
+                    alert("Please enter a valid age between 1 and 120");
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        <h2>Registration Form</h2>
+        <form name="regform" action="/submit" method="post" onsubmit="return validate()">
+            Username: <input type="text" name="username"><br><br>
+            Password: <input type="password" name="password"><br><br>
+            Age: <input type="text" name="age"><br><br>
+            <input type="submit" value="Register">
+    </body>
+</html>
