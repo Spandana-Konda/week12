@@ -33,7 +33,7 @@ def test_empty_password(setup_teardown):
     driver = setup_teardown
     driver.get("http://127.0.0.1:5000/")
 
-    driver.find_element(By.NAME, "username").send_keys("John Doe")
+    driver.find_element(By.NAME, "username").send_keys("Spandana")
     driver.find_element(By.NAME, "pwd").clear()
     driver.find_element(By.NAME, "sb").click()
 
@@ -68,3 +68,4 @@ def test_valid_input(setup_teardown):
 
     body_text = driver.find_element(By.TAG_NAME, "body").text
     assert "Hello, Alice! Welcome to the website" in body_text, f"Greeting not found or incorrect: {body_text}"
+
